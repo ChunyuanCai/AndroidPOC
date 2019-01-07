@@ -14,11 +14,13 @@ buildscript {
 }
 
 allprojects {
+
     repositories {
         google()
         jcenter()
         mavenCentral()
     }
+
     configurations.all {
         resolutionStrategy.cacheDynamicVersionsFor 0, 'minutes'
     }

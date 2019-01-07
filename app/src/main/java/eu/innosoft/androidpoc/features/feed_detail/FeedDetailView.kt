@@ -9,8 +9,6 @@ import eu.innosoft.androidpoc.R
 
 class FeedDetailView : Fragment() {
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.feed_details_view, container, false)
-
 
 }

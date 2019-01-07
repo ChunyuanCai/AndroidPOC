@@ -34,14 +34,14 @@ class FeedsAdapter(supportFragmentManager: FragmentManager?) : RecyclerView.Adap
         items.addAll(feeds)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = delegateAdapters.get(viewType).onCreateViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = delegateAdapters.get(viewType)!!.onCreateViewHolder(parent)
 
     override fun getItemViewType(position: Int): Int = items[position].getViewType()
 
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        delegateAdapters.get(getItemViewType(position)).onBindViewHolder(holder, this.items[position])
+        delegateAdapters.get(getItemViewType(position))!!.onBindViewHolder(holder, this.items[position])
     }
 
 }

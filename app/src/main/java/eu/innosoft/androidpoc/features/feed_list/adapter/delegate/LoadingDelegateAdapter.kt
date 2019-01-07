@@ -17,7 +17,6 @@ class LoadingDelegateAdapter : ViewTypeDelegateAdapter {
 
 
     class TurnsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
-            parent.inflate(R.layout.feeds_item_loading)) {
-    }
+            parent.inflate(R.layout.feeds_item_loading))
 
 }
