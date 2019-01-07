@@ -13,5 +13,5 @@
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:textSize="14sp"
-        android:text="Message is funny"/>
+        android:text="Message is funny with new navigation"/>
 </RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            app:startDestination="@id/feedListView">
+
+    <fragment
+        android:id="@+id/feedListView"
+        android:name="eu.innosoft.androidpoc.features.feed_list.FeedListView"
+        android:label="FeedListView">
+        <action
+            android:id="@+id/action_feedListView_to_feedDetailView"
+            app:destination="@id/feedDetailView"/>
+    </fragment>
+    <fragment
+        android:id="@+id/feedDetailView"
+        android:name="eu.innosoft.androidpoc.features.feed_detail.FeedDetailView"
+        android:label="FeedDetailView"/>
+</navigation>

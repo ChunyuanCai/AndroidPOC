@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import eu.innosoft.androidpoc.R
 import eu.innosoft.androidpoc.features.feed_list.adapter.FeedsAdapter
 import eu.innosoft.androidpoc.features.feed_list.models.Ad
@@ -24,7 +25,8 @@ class FeedListView : Fragment() {
         if (lsFeeds.adapter == null) {
             // bad practice to simply passing a fragment manager for navigation
             // next commit will give a shot on Android Navigator
-            lsFeeds.adapter = FeedsAdapter(activity?.supportFragmentManager)
+
+            lsFeeds.adapter = FeedsAdapter( Navigation.findNavController(view))
         }
 
         (lsFeeds.adapter as FeedsAdapter).addFeeds(listOf(
