@@ -2,7 +2,7 @@ package eu.innosoft.androidpoc
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import eu.innosoft.androidpoc.feed_list.FeedListView
+import eu.innosoft.androidpoc.features.feed_list.FeedListView
 
 class MainView : AppCompatActivity() {
 

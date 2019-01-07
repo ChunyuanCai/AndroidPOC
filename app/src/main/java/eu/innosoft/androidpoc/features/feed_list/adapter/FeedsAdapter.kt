@@ -1,15 +1,16 @@
-package eu.innosoft.androidpoc.feed_list.adapter
+package eu.innosoft.androidpoc.features.feed_list.adapter
 
+import android.support.v4.app.FragmentManager
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import eu.innosoft.androidpoc.commons.ViewTypeDelegateAdapter
-import eu.innosoft.androidpoc.feed_list.adapter.delegate.AdDelegateAdapter
-import eu.innosoft.androidpoc.feed_list.adapter.delegate.FeedDelegateAdapter
-import eu.innosoft.androidpoc.feed_list.adapter.delegate.LoadingDelegateAdapter
+import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.AdDelegateAdapter
+import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.FeedDelegateAdapter
+import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.LoadingDelegateAdapter
 import java.util.*
 
-class FeedsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FeedsAdapter(supportFragmentManager: FragmentManager?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     private var items: ArrayList<FeedViewType>
@@ -20,7 +21,7 @@ class FeedsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     init {
         delegateAdapters.put(FeedViewType.FeedListTypeConst.LOADING, LoadingDelegateAdapter())
-        delegateAdapters.put(FeedViewType.FeedListTypeConst.FEED, FeedDelegateAdapter())
+        delegateAdapters.put(FeedViewType.FeedListTypeConst.FEED, FeedDelegateAdapter(supportFragmentManager))
         delegateAdapters.put(FeedViewType.FeedListTypeConst.AD, AdDelegateAdapter())
         items = ArrayList()
         items.add(loadingItem)

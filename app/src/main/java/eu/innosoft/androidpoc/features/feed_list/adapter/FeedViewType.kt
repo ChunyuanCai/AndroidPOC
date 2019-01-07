@@ -1,4 +1,4 @@
-package eu.innosoft.androidpoc.feed_list.adapter
+package eu.innosoft.androidpoc.features.feed_list.adapter
 
 interface FeedViewType {
 

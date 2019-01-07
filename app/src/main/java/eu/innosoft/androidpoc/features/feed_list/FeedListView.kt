@@ -1,4 +1,4 @@
-package eu.innosoft.androidpoc.feed_list
+package eu.innosoft.androidpoc.features.feed_list
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import eu.innosoft.androidpoc.R
-import eu.innosoft.androidpoc.feed_list.adapter.FeedsAdapter
-import eu.innosoft.androidpoc.feed_list.models.Ad
-import eu.innosoft.androidpoc.feed_list.models.Feed
+import eu.innosoft.androidpoc.features.feed_list.adapter.FeedsAdapter
+import eu.innosoft.androidpoc.features.feed_list.models.Ad
+import eu.innosoft.androidpoc.features.feed_list.models.Feed
 import kotlinx.android.synthetic.main.feed_list_view.*
 
 class FeedListView : Fragment() {
@@ -22,7 +22,9 @@ class FeedListView : Fragment() {
         lsFeeds.layoutManager = LinearLayoutManager(activity)
 
         if (lsFeeds.adapter == null) {
-            lsFeeds.adapter = FeedsAdapter()
+            // bad practice to simply passing a fragment manager for navigation
+            // next commit will give a shot on Android Navigator
+            lsFeeds.adapter = FeedsAdapter(activity?.supportFragmentManager)
         }
 
         (lsFeeds.adapter as FeedsAdapter).addFeeds(listOf(
