@@ -26,7 +26,7 @@ class FeedListView : Fragment() {
             // bad practice to simply passing a fragment manager for navigation
             // next commit will give a shot on Android Navigator
 
-            lsFeeds.adapter = FeedsAdapter( Navigation.findNavController(view))
+            lsFeeds.adapter = FeedsAdapter( Navigation.findNavController(view), activity?.supportFragmentManager)
         }
 
         (lsFeeds.adapter as FeedsAdapter).addFeeds(listOf(
