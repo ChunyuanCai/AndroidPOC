@@ -1,16 +1,17 @@
 package eu.innosoft.androidpoc.activities.splash
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import eu.innosoft.androidpoc.App
 import eu.innosoft.androidpoc.R
-import eu.innosoft.androidpoc.activities.app_main.MainView
+import eu.innosoft.androidpoc.features.sign_up.SignUpView
+import kotlinx.android.synthetic.main.splash_view.*
 
 class SplashView : AppCompatActivity() {
 
-    private val splashScope: SplashComponent by lazy {
+    val splashScope: SplashComponent by lazy {
         DaggerSplashComponent.builder()
                 .appComponent(App.get(this).getAppComponent())
                 .splashModule(SplashModule(this))
@@ -23,7 +24,13 @@ class SplashView : AppCompatActivity() {
         splashScope.inject(this)
 
         Handler().postDelayed(
-                { this.startActivity(Intent(this, MainView::class.java)) },
+                {
+                    tvWelcome.visibility = View.GONE
+                    vSplashContainer.visibility = View.VISIBLE
+                    supportFragmentManager.beginTransaction()
+                            .add(R.id.vSplashContainer, SignUpView())
+                            .commit()
+                },
                 500
         )
     }
