@@ -9,8 +9,7 @@ import kotlinx.android.synthetic.main.app_view.*
 
 class MainView : AppCompatActivity() {
 
-
-    private val mainScope: MainViewComponent by lazy {
+     val mainScope: MainViewComponent by lazy {
         DaggerMainViewComponent.builder()
                 .appComponent(App.get(this).getAppComponent())
                 .mainViewModule(MainViewModule(this))
