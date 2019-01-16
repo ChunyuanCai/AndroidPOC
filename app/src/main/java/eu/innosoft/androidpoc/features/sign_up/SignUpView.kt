@@ -16,8 +16,14 @@ class SignUpView : Fragment() {
 
     private lateinit var scopeGraph: SignUpComponent
 
-//    @Inject
-//    lateinit var toastFactory: ToastFactory
+    /** Dependency below can not be injected as it is not provided from the splash component. Really good!
+     *
+     *  @Inject
+     *  lateinit var toastFactory: ToastFactory
+     *
+     *  In order to use it, you could lift the dependency up to global graph instead
+     */
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +37,9 @@ class SignUpView : Fragment() {
 
 
         Handler().postDelayed(
-                { activity?.startActivity(Intent(activity, MainView::class.java)) },
+                {
+                    activity?.startActivity(Intent(activity, MainView::class.java))
+                },
                 500
         )
     }
