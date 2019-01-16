@@ -1,4 +1,4 @@
-package eu.innosoft.androidpoc.views
+package eu.innosoft.androidpoc.widgets
 
 import android.content.Context
 import android.widget.Toast

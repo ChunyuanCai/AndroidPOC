@@ -39,5 +39,8 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui:$nav_version" // use -ktx for Kotlin
 
 
+    // 3rd-party
+    implementation 'uk.co.samuelwall:material-tap-target-prompt:2.14.0'
+
     testImplementation 'junit:junit:4.12'
 }

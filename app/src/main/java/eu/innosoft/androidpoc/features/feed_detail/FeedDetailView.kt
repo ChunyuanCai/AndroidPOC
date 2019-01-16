@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import eu.innosoft.androidpoc.R
 import eu.innosoft.androidpoc.activities.app_main.MainView
 import eu.innosoft.androidpoc.activities.app_main.MainViewComponent
-import eu.innosoft.androidpoc.views.ToastFactory
+import eu.innosoft.androidpoc.widgets.ToastFactory
 import javax.inject.Inject
 
 class FeedDetailView : Fragment() {

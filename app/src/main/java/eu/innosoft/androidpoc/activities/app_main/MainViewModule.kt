@@ -4,7 +4,8 @@ import android.support.v4.app.FragmentManager
 import dagger.Module
 import dagger.Provides
 import eu.innosoft.androidpoc.di.ActivityScope
-import eu.innosoft.androidpoc.views.ToastFactory
+import eu.innosoft.androidpoc.widgets.ToastFactory
+import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
 
 
 @Module
@@ -20,5 +21,9 @@ class MainViewModule(private val mainView: MainView) {
     @ActivityScope
     fun provideToastFactory(): ToastFactory = ToastFactory(mainView.applicationContext)
 
+
+    @Provides
+    @ActivityScope
+    fun provideTapTargetPrompt(): MaterialTapTargetPrompt.Builder = MaterialTapTargetPrompt.Builder(mainView)
 
 }
