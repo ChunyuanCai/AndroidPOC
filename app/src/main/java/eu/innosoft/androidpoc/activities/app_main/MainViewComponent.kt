@@ -14,7 +14,7 @@ interface MainViewComponent {
 
     //expose dependencies to feature scoped graphs
 
-    fun exposeToastFactory():ToastFactory
+    fun exposeToastFactory(): ToastFactory
     fun exposeTapTargetPromptBuilder(): MaterialTapTargetPrompt.Builder
 
 }

@@ -3,15 +3,13 @@ package eu.innosoft.androidpoc.features.feed_list.adapter
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import androidx.navigation.NavController
 import eu.innosoft.androidpoc.commons.ViewTypeDelegateAdapter
 import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.AdDelegateAdapter
 import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.FeedDelegateAdapter
 import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.LoadingDelegateAdapter
 import java.util.*
 
-class FeedsAdapter(navigator: NavController) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
+class FeedsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: ArrayList<FeedViewType>
     private var delegateAdapters = SparseArrayCompat<ViewTypeDelegateAdapter>()
@@ -21,7 +19,7 @@ class FeedsAdapter(navigator: NavController) : RecyclerView.Adapter<RecyclerView
 
     init {
         delegateAdapters.put(FeedViewType.FeedListTypeConst.LOADING, LoadingDelegateAdapter())
-        delegateAdapters.put(FeedViewType.FeedListTypeConst.FEED, FeedDelegateAdapter(navigator))
+        delegateAdapters.put(FeedViewType.FeedListTypeConst.FEED, FeedDelegateAdapter())
         delegateAdapters.put(FeedViewType.FeedListTypeConst.AD, AdDelegateAdapter())
         items = ArrayList()
         items.add(loadingItem)

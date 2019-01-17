@@ -6,14 +6,22 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import eu.innosoft.androidpoc.R
+import eu.innosoft.androidpoc.activities.app_main.MainView
+import eu.innosoft.androidpoc.activities.app_main.MainViewComponent
 import eu.innosoft.androidpoc.features.feed_list.adapter.FeedsAdapter
 import eu.innosoft.androidpoc.features.feed_list.models.Ad
 import eu.innosoft.androidpoc.features.feed_list.models.Feed
 import kotlinx.android.synthetic.main.feed_list_view.*
 
 class FeedListView : Fragment() {
+
+    private lateinit var scopeGraph: FeedListComponent
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setupScopeGraph((activity as MainView).mainScope)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.feed_list_view, container, false)
 
@@ -26,7 +34,7 @@ class FeedListView : Fragment() {
             // bad practice to simply passing a fragment manager for navigation
             // next commit will give a shot on Android Navigator
 
-            lsFeeds.adapter = FeedsAdapter( Navigation.findNavController(view))
+            lsFeeds.adapter = FeedsAdapter()
         }
 
         (lsFeeds.adapter as FeedsAdapter).addFeeds(listOf(
@@ -41,5 +49,13 @@ class FeedListView : Fragment() {
                 Feed("Worst news"),
                 Ad("ad0")
         ))
+    }
+
+    private fun setupScopeGraph(mainScope: MainViewComponent) {
+        scopeGraph = DaggerFeedListComponent.builder()
+                .mainViewComponent(mainScope)
+                .feedListModule(FeedListModule(this))
+                .build()
+        scopeGraph.inject(this)
     }
 }
