@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavOptions
+import androidx.navigation.navOptions
 import eu.innosoft.androidpoc.R
 import eu.innosoft.androidpoc.commons.ViewTypeDelegateAdapter
 import eu.innosoft.androidpoc.commons.extensions.findNavController
@@ -29,14 +30,18 @@ class FeedDelegateAdapter : ViewTypeDelegateAdapter {
 
         fun bind(item: Feed) = with(itemView) {
             tvMessage.text = item.message
-            tvMessage.setOnClickListener { it ->
-                val option = NavOptions.Builder()
-                        .setEnterAnim(R.anim.slide_in_right)
-                        .setExitAnim(R.anim.slide_out_left)
-                        .setPopEnterAnim(R.anim.slide_in_left)
-                        .setPopExitAnim(R.anim.slide_out_right)
-                        .build()
-                it.findNavController().navigate(R.id.action_feedListView_to_feedDetailView, null, option)
+            tvMessage.setOnClickListener { v ->
+                v.findNavController().navigate(
+                        R.id.action_feedListView_to_feedDetailView,
+                        null,
+                        navOptions {
+                            anim {
+                                enter = R.anim.slide_in_right
+                                exit = R.anim.slide_out_left
+                                popEnter = R.anim.slide_in_left
+                                popExit = R.anim.slide_out_right
+                            }
+                        })
             }
         }
     }
