@@ -3,6 +3,7 @@ package eu.innosoft.androidpoc.features.feed_list.adapter.delegate
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import eu.innosoft.androidpoc.R
 import eu.innosoft.androidpoc.commons.ViewTypeDelegateAdapter
 import eu.innosoft.androidpoc.commons.extensions.findNavController
@@ -19,16 +20,24 @@ class FeedDelegateAdapter : ViewTypeDelegateAdapter {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: FeedViewType) {
         holder as TurnsViewHolder
-        holder.bind(item as Feed) { v -> v.findNavController().navigate(R.id.action_feedListView_to_feedDetailView) }
+        holder.bind(item as Feed)
     }
 
 
     class TurnsViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
             parent.inflate(R.layout.feeds_item_feed)) {
 
-        fun bind(item: Feed, cellOnClickListener: (v: View) -> Unit) = with(itemView) {
+        fun bind(item: Feed) = with(itemView) {
             tvMessage.text = item.message
-            tvMessage.setOnClickListener { cellOnClickListener(tvMessage) }
+            tvMessage.setOnClickListener { it ->
+                val option = NavOptions.Builder()
+                        .setEnterAnim(R.anim.slide_in_right)
+                        .setExitAnim(R.anim.slide_out_left)
+                        .setPopEnterAnim(R.anim.slide_in_left)
+                        .setPopExitAnim(R.anim.slide_out_right)
+                        .build()
+                it.findNavController().navigate(R.id.action_feedListView_to_feedDetailView, null, option)
+            }
         }
     }
 
