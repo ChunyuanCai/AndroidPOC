@@ -1,6 +1,6 @@
 package eu.innosoft.androidpoc.activities.splash
 
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.FragmentManager
 import dagger.Module
 import dagger.Provides
 import eu.innosoft.androidpoc.di.ActivityScope

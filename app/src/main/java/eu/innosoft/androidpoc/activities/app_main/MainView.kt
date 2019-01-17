@@ -1,7 +1,7 @@
 package eu.innosoft.androidpoc.activities.app_main
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import eu.innosoft.androidpoc.App
 import eu.innosoft.androidpoc.R

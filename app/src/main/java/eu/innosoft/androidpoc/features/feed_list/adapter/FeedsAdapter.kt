@@ -1,7 +1,7 @@
 package eu.innosoft.androidpoc.features.feed_list.adapter
 
-import android.support.v4.util.SparseArrayCompat
-import android.support.v7.widget.RecyclerView
+import androidx.collection.SparseArrayCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import eu.innosoft.androidpoc.commons.ViewTypeDelegateAdapter
 import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.AdDelegateAdapter

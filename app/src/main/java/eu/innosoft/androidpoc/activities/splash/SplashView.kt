@@ -2,7 +2,7 @@ package eu.innosoft.androidpoc.activities.splash
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import eu.innosoft.androidpoc.App
 import eu.innosoft.androidpoc.R

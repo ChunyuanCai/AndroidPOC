@@ -1,6 +1,6 @@
 package eu.innosoft.androidpoc.commons
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import eu.innosoft.androidpoc.features.feed_list.adapter.FeedViewType
 

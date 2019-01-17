@@ -1,6 +1,6 @@
 package eu.innosoft.androidpoc.features.feed_list.adapter.delegate
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavOptions
