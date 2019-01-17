@@ -31,9 +31,6 @@ class FeedListView : Fragment() {
         lsFeeds.layoutManager = LinearLayoutManager(activity)
 
         if (lsFeeds.adapter == null) {
-            // bad practice to simply passing a fragment manager for navigation
-            // next commit will give a shot on Android Navigator
-
             lsFeeds.adapter = FeedsAdapter()
         }
 
