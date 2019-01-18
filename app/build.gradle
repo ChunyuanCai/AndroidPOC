@@ -28,26 +28,38 @@ dependencies {
 
     def nav_version = "1.0.0-alpha09"
 
-    kapt "com.google.dagger:dagger-compiler:${daggerVersion}"
-
-    implementation 'androidx.core:core-ktx:1.1.0-alpha03'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin
+    implementation 'androidx.core:core-ktx:1.1.0-alpha03'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //AndroidX
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation "androidx.recyclerview:recyclerview:1.1.0-alpha01"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
+
+    //DI
+    kapt "com.google.dagger:dagger-compiler:${daggerVersion}"
     implementation "com.google.dagger:dagger:${daggerVersion}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Navigation
     implementation "android.arch.navigation:navigation-common-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-fragment:$nav_version" // use -ktx for Kotlin
     implementation "android.arch.navigation:navigation-ui:$nav_version" // use -ktx for Kotlin
 
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.4'
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.0.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+
+    // RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.5'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
-    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
 
 
-    // 3rd-party
+    // Other 3rd-party libraries
     implementation 'uk.co.samuelwall:material-tap-target-prompt:2.14.0'
 
     testImplementation 'junit:junit:4.12'

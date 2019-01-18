@@ -39,7 +39,7 @@ class FeedListView : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getDataForFeedList()
+        viewModel.getDataForList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { data -> (lsFeeds.adapter as FeedsAdapter).addFeeds(data) }
                 .register(rxDisposables)
@@ -61,7 +61,7 @@ class FeedListView : Fragment() {
     private fun setupScopeGraph(mainScope: MainViewComponent) {
         scopeGraph = DaggerFeedListComponent.builder()
                 .mainViewComponent(mainScope)
-                .feedListModule(FeedListModule())
+                .feedListModule(FeedListModule(this))
                 .build()
         scopeGraph.inject(this)
     }

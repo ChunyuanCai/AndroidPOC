@@ -1,5 +1,6 @@
 package eu.innosoft.androidpoc.features.feed_list
 
+import androidx.lifecycle.ViewModel
 import eu.innosoft.androidpoc.features.feed_list.adapter.FeedViewType
 import eu.innosoft.androidpoc.features.feed_list.models.Ad
 import eu.innosoft.androidpoc.features.feed_list.models.Feed
@@ -10,9 +11,10 @@ import io.reactivex.functions.BiFunction
 
 class FeedListViewModel constructor(
         private var getFeeds: GetFeeds,
-        private var getAds: GetAds) {
+        private var getAds: GetAds) : ViewModel() {
 
-    fun getDataForFeedList(): Single<List<FeedViewType>> =
+
+    fun getDataForList(): Single<List<FeedViewType>> =
             getFeeds.call().zipWith(getAds.call(), BiFunction { feeds, ads ->
 
                 val resultList: MutableList<FeedViewType> = ArrayList()
@@ -20,6 +22,5 @@ class FeedListViewModel constructor(
                 ads.forEach { resultList.add(it.position, Ad(it.message)) }
                 resultList
             })
-
 
 }
