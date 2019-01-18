@@ -9,12 +9,13 @@ import kotlinx.android.synthetic.main.app_view.*
 
 class MainView : AppCompatActivity() {
 
-     val mainScope: MainViewComponent by lazy {
+    val mainScope: MainViewComponent by lazy {
         DaggerMainViewComponent.builder()
                 .appComponent(App.get(this).getAppComponent())
                 .mainViewModule(MainViewModule(this))
                 .build()
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_view)

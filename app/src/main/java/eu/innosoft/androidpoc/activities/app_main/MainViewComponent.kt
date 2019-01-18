@@ -6,7 +6,7 @@ import eu.innosoft.androidpoc.di.ActivityScope
 import eu.innosoft.androidpoc.widgets.ToastFactory
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
 
-@Component(dependencies = [(AppComponent::class)], modules = [(MainViewModule::class)])
+@Component(dependencies = [(AppComponent::class)], modules = [MainViewModule::class])
 @ActivityScope
 interface MainViewComponent {
 
