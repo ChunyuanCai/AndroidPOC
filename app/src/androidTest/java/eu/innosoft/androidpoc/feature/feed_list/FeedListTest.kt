@@ -57,6 +57,8 @@ class FeedListTest {
 
         testRule.launchActivity(null)
 
+        // Let page wait for espresso: bad practise here
+        Thread.sleep(1500)
         // your espresso goes here
 
     }
