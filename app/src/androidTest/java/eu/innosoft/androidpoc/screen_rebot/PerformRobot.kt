@@ -1,13 +1,15 @@
 package eu.innosoft.androidpoc.screen_rebot
 
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onData
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
+import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.FeedDelegateAdapter
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.anything
 
@@ -18,10 +20,9 @@ open class PerformRobot : ScreenRobot() {
 
     fun tapOnText(text: String) {
         waitFor(ViewMatchers.withText(text))
-        Espresso.onView(ViewMatchers.withText(text)).perform(ViewActions.click())
+        onView(ViewMatchers.withText(text)).perform(ViewActions.click())
     }
 
-    // more robot perform goes here...
     fun fillEditText(resId: Int, text: String): ViewInteraction =
             onView(withId(resId)).perform(ViewActions.replaceText(text), ViewActions.closeSoftKeyboard())
 
@@ -38,6 +39,12 @@ open class PerformRobot : ScreenRobot() {
         onData(anything())
                 .inAdapterView(allOf(withId(listRes)))
                 .atPosition(position).perform(ViewActions.click())
+    }
+
+    fun clickListItemWithText(listRes: Int, text: String) {
+        onView(withId(listRes))
+                .perform(RecyclerViewActions.actionOnItem<FeedDelegateAdapter.TurnsViewHolder>(
+                        hasDescendant(withText(text)), click()))
     }
 
 

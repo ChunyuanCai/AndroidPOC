@@ -45,8 +45,6 @@ class FeedListTest {
                 .build()
         app.setAppComponent(mockAppComponent)
         mockAppComponent.inject(this)
-
-        testRule.launchActivity(null)
     }
 
     @Test
@@ -58,16 +56,17 @@ class FeedListTest {
                 FeedModel(message = "Test Feed 2", author = "Tester Nr. 2"),
                 FeedModel(message = "Test Feed 3", author = "Tester Nr. 3"))))
 
-
-        loadList {
-
-
-        }
+        testRule.launchActivity(null)
 
         // Let page wait for espresso: bad practise here
         // shall be handled by IdlingResource
         Thread.sleep(1500)
         // your espresso goes here
+
+        loadList {
+            clickOnFirstItem()
+        }
+
 
     }
 

@@ -1,5 +1,6 @@
 package eu.innosoft.androidpoc.feature.feed_list
 
+import eu.innosoft.androidpoc.R
 import eu.innosoft.androidpoc.screen_rebot.PerformRobot
 
 
@@ -9,4 +10,8 @@ class FeedListRobot : PerformRobot() {
 
 
     //  page logic robot goes here e.g. click on item whatever
+    fun clickOnFirstItem(){
+        clickListItemWithText(R.id.lsFeeds, "Test Feed 1")
+        Thread.sleep(2000)
+    }
 }

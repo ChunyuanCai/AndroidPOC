@@ -20,7 +20,7 @@ open class ScreenRobot {
         Espresso.onView(ViewMatchers.isRoot()).perform(waitForMatch(matcher, PATIENCE))
     }
 
-    private fun waitForMatch(matcher: Matcher<View>, millis: Long?): ViewAction {
+    private fun waitForMatch(matcher: Matcher<View>, millis: Long = PATIENCE): ViewAction {
         return object : ViewAction {
 
             override fun getConstraints(): Matcher<View> =
