@@ -6,6 +6,7 @@ import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -18,6 +19,7 @@ import org.hamcrest.Matchers.anything
  */
 open class PerformRobot : ScreenRobot() {
 
+    // perform
     fun tapOnText(text: String) {
         waitFor(ViewMatchers.withText(text))
         onView(ViewMatchers.withText(text)).perform(ViewActions.click())
@@ -31,7 +33,7 @@ open class PerformRobot : ScreenRobot() {
     fun textView(resId: Int): ViewInteraction = onView(withId(resId))
 
     fun matchText(viewInteraction: ViewInteraction, text: String): ViewInteraction = viewInteraction
-            .check(ViewAssertions.matches(ViewMatchers.withText(text)))
+            .check(matches(ViewMatchers.withText(text)))
 
     fun matchText(resId: Int, text: String): ViewInteraction = matchText(textView(resId), text)
 
@@ -45,6 +47,11 @@ open class PerformRobot : ScreenRobot() {
         onView(withId(listRes))
                 .perform(RecyclerViewActions.actionOnItem<FeedDelegateAdapter.TurnsViewHolder>(
                         hasDescendant(withText(text)), click()))
+    }
+
+    //verify
+    fun textDisplay(text: String) {
+        onView(withText(text)).check(matches(isDisplayed()))
     }
 
 

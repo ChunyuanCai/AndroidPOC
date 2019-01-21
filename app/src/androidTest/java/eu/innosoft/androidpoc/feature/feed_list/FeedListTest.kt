@@ -48,7 +48,7 @@ class FeedListTest {
     }
 
     @Test
-    fun simply_run() {
+    fun should_show_feed_detail_after_click_item_in_feed_list() {
         whenever(mockApi.getAds()).thenReturn(Single.just(listOf(
                 AdModel(message = "Test Ad", position = 1))))
         whenever(mockApi.getFeeds()).thenReturn(Single.just(listOf(
@@ -60,6 +60,8 @@ class FeedListTest {
 
         loadList {
             clickOnFirstItem()
+
+            showFeedDetail()
         }
 
 

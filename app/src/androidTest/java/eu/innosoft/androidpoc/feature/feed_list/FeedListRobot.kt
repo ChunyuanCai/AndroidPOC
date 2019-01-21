@@ -15,5 +15,10 @@ class FeedListRobot : PerformRobot() {
         waitFor(withId(R.id.lsFeeds))
         clickListItemWithText(R.id.lsFeeds, "Test Feed 1")
         waitFor(withId(R.id.tvFeedMessage))
+
+    }
+
+    fun showFeedDetail(){
+        textDisplay("Message is funny with new navigation")
     }
 }
