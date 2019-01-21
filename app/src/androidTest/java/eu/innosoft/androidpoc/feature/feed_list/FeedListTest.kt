@@ -58,11 +58,6 @@ class FeedListTest {
 
         testRule.launchActivity(null)
 
-        // Let page wait for espresso: bad practise here
-        // shall be handled by IdlingResource
-        Thread.sleep(1500)
-        // your espresso goes here
-
         loadList {
             clickOnFirstItem()
         }
