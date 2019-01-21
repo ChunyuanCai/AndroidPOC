@@ -2,6 +2,8 @@ package eu.innosoft.androidpoc.activities.app_main
 
 import dagger.Component
 import eu.innosoft.androidpoc.AppComponent
+import eu.innosoft.androidpoc.data.repository.AdsRepository
+import eu.innosoft.androidpoc.data.repository.FeedsRepository
 import eu.innosoft.androidpoc.di.ActivityScope
 import eu.innosoft.androidpoc.widgets.ToastFactory
 import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt
@@ -16,5 +18,8 @@ interface MainViewComponent {
 
     fun exposeToastFactory(): ToastFactory
     fun exposeTapTargetPromptBuilder(): MaterialTapTargetPrompt.Builder
+
+    fun exposeFeedsRepository(): FeedsRepository
+    fun exposeAdsRepository(): AdsRepository
 
 }
