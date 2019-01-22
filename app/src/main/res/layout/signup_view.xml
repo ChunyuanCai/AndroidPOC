@@ -10,15 +10,33 @@
     tools:context=".activities.app_main.MainView">
 
     <TextView
+        android:id="@+id/tvSignInHint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
         android:gravity="center"
+        android:lineHeight="28dp"
         android:text="@string/sign_up_hint"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        android:lineHeight="28dp"
+        android:textSize="18sp"
+        android:textStyle="italic"/>
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingTop="5dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="5dp"
+        android:text="@string/enter"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
         android:textStyle="bold"/>
 
 </LinearLayout>

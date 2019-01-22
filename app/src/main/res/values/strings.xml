@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Android POC</string>
-    <string name="sign_up_hint">Sign up for best Jodels!\n You are assigned with a random account</string>
+    <string name="sign_up_hint">No sign up, just enter in and enjoy !</string>
+    <string name="enter">Get your account</string>
 </resources>
