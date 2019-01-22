@@ -31,7 +31,7 @@ class SplashView : AppCompatActivity() {
                             .add(R.id.vSplashContainer, SignUpView())
                             .commit()
                 },
-                500
+                1500
         )
     }
 

@@ -57,6 +57,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
     implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
 
+    // RxBinding
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2'
+
     // Other 3rd-party libraries
     implementation 'uk.co.samuelwall:material-tap-target-prompt:2.14.0'
 
