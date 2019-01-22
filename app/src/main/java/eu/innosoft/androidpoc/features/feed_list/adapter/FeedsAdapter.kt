@@ -1,15 +1,15 @@
 package eu.innosoft.androidpoc.features.feed_list.adapter
 
+import android.view.ViewGroup
 import androidx.collection.SparseArrayCompat
 import androidx.recyclerview.widget.RecyclerView
-import android.view.ViewGroup
 import eu.innosoft.androidpoc.commons.ViewTypeDelegateAdapter
 import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.AdDelegateAdapter
 import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.FeedDelegateAdapter
 import eu.innosoft.androidpoc.features.feed_list.adapter.delegate.LoadingDelegateAdapter
 import java.util.*
 
-class FeedsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FeedsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items: ArrayList<FeedViewType>
     private var delegateAdapters = SparseArrayCompat<ViewTypeDelegateAdapter>()
@@ -28,8 +28,8 @@ class FeedsAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun addFeeds(feeds: List<FeedViewType>) {
         val initPosition = items.size - 1
         items.removeAt(initPosition)
-        notifyItemRemoved(initPosition)
         items.addAll(feeds)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = delegateAdapters.get(viewType)!!.onCreateViewHolder(parent)

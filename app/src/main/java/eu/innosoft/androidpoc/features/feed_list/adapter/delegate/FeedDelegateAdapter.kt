@@ -1,10 +1,8 @@
 package eu.innosoft.androidpoc.features.feed_list.adapter.delegate
 
-import androidx.recyclerview.widget.RecyclerView
-import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavOptions
 import androidx.navigation.navOptions
+import androidx.recyclerview.widget.RecyclerView
 import eu.innosoft.androidpoc.R
 import eu.innosoft.androidpoc.commons.ViewTypeDelegateAdapter
 import eu.innosoft.androidpoc.commons.extensions.findNavController

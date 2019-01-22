@@ -1,7 +1,7 @@
 package eu.innosoft.androidpoc.features.feed_list.adapter.delegate
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import eu.innosoft.androidpoc.R
 import eu.innosoft.androidpoc.commons.ViewTypeDelegateAdapter
 import eu.innosoft.androidpoc.commons.extensions.inflate

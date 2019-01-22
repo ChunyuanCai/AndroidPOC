@@ -13,6 +13,7 @@ import eu.innosoft.androidpoc.commons.extensions.register
 import eu.innosoft.androidpoc.features.feed_list.adapter.FeedsAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.feed_list_view.*
 import javax.inject.Inject
 
@@ -40,6 +41,7 @@ class FeedListView : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.getDataForList()
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { data -> (lsFeeds.adapter as FeedsAdapter).addFeeds(data) }
                 .register(rxDisposables)
