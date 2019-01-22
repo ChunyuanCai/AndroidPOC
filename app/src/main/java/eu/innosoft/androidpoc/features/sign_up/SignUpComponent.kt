@@ -7,8 +7,5 @@ import eu.innosoft.androidpoc.di.FeatureScope
 @Component(dependencies = [(SplashComponent::class)], modules = [(SignUpModule::class)])
 @FeatureScope
 interface SignUpComponent {
-
     fun inject(view: SignUpView)
-
-
 }

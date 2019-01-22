@@ -20,9 +20,9 @@ import org.hamcrest.Matchers.anything
 open class PerformRobot : ScreenRobot() {
 
     // perform
-    fun tapOnText(text: String) {
+    fun tapOnText(text: String): ViewInteraction {
         waitFor(ViewMatchers.withText(text))
-        onView(ViewMatchers.withText(text)).perform(ViewActions.click())
+        return onView(ViewMatchers.withText(text)).perform(ViewActions.click())
     }
 
     fun fillEditText(resId: Int, text: String): ViewInteraction =
