@@ -9,7 +9,6 @@ fun loadList(func: FeedListRobot.() -> Unit) = FeedListRobot().apply { func() }
 
 class FeedListRobot : PerformRobot() {
 
-
     //  page logic robot goes here e.g. click on item whatever
     fun clickOnFirstItem(){
         waitFor(withId(R.id.lsFeeds))
